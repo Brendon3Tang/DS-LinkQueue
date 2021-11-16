@@ -22,7 +22,7 @@ LinkQueue<DataType>::~LinkQueue()
 		
 		q = p;
 		p = p->next;
-		cout << "析构中。。。。。。。。" << endl;
+		//cout << "析构中。。。。。。。。" << endl;
 		delete q;
 		
 	}
@@ -95,6 +95,7 @@ bool LinkQueue<DataType>::isEmpty()
 template<class DataType>
 void LinkQueue<DataType>::clearQueue()
 {
+	//无法同时运行clearQueue下面这部分与~LinkQueue两个函数
 	//Node* p,* q;
 	//p = this->front->next;
 	//q = this->front;
