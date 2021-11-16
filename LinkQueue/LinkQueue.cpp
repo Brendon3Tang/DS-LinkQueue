@@ -16,15 +16,18 @@ LinkQueue<DataType>::~LinkQueue()
 
 	p = front->next;
 	q = front;
-	delete front;
+	
 	while (p != NULL)
 	{
+		
 		q = p;
 		p = p->next;
+		cout << "裂更嶄。。。。。。。。" << endl;
 		delete q;
+		
 	}
 	delete p;
-	
+	delete front;
 	
 	//while (front != NULL)
 	//{
@@ -92,15 +95,19 @@ bool LinkQueue<DataType>::isEmpty()
 template<class DataType>
 void LinkQueue<DataType>::clearQueue()
 {
-	Node* p,q;
-	p = this->front->next;
+	//Node* p,* q;
+	//p = this->front->next;
+	//q = this->front;
 
-	while (p != NULL)
-	{
-		q = p;
-		p = p->next;
-		delete q;
-	}
+	//while (p != NULL)
+	//{
+	//	q = p;
+	//	p = p->next;
+	//	delete q;
+	//}
+	//delete p;
+
+	rear = front;
 	length = 0;
 }
 
@@ -158,6 +165,12 @@ int main()
 			cout << "Queue is empty!!!!" << endl;
 		}
 	}
+
+	lq.enQueue(100);
+	cout << "the length right now is: " << lq.queueLength() << endl;
+	lq.clearQueue();
+	cout << "the length after clearing is: " << lq.queueLength() << endl;
+
 
 	return 0;
 	
